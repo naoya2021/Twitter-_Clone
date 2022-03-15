@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>TweetClone</h1>
+    {% for i in tweets %}
+    <ul>
+        <li>
+            {{i}}
+        </li>
+    </ul>
+    {% endfor %}
+
+    {% for i,t,l in tweets %}
+    <ul>
+        <li>
+            {{t}}<a href="{% url 'update' tweet_id=i %}">編集</a> 
+            <a href="{% url 'delete' tweet_id=i %}">削除</a><br>
+            <p><a href="{% url 'like' tweet_id=i %}">{{l}}</a></p>
+        </li>
+    </ul>
+    {% endfor %}
+</body>
+</html>
